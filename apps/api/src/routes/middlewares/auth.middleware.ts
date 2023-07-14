@@ -1,7 +1,7 @@
 import { AppKoaContext, Next } from 'types';
 
-const auth = (ctx: AppKoaContext, next: Next) => {
-  if (ctx.state.user) {
+const auth = (entityType = 'staff') => (ctx: AppKoaContext, next: Next) => {
+  if (ctx.state.user && ctx.state.userEntityType === entityType) {
     return next();
   }
 

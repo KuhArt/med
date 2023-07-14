@@ -15,7 +15,8 @@ const defineRoutes = (app: AppKoa) => {
   app.use(tryToAttachUser);
   
   publicRoutes(app);
-  privateRoutes(app);
+  privateRoutes(app, { entityType: 'patient' });
+  privateRoutes(app, { entityType: 'staff' });
   adminRoutes(app);
 };
 
